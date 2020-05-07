@@ -1,0 +1,26 @@
+version: '3'
+services:
+  aks-sample-app:
+    container_name: aks-sample-app
+    image: aks-sample-app
+    ports:
+      - "8080:8080"
+    environment:
+      - AKS_SAMPLE_APP_URL1=http://192.168.98.26:8081/aks-sample-service
+      - AKS_SAMPLE_APP_URL2=http://192.168.98.26:8082/aks-sample-service2
+      - AKS_SAMPLE_APP_URL3=http://192.168.98.26:8083/aks-sample-service3
+  aks-sample-service:
+    container_name: aks-sample-service
+    image: aks-sample-service
+    ports:
+      - "8081:8081"
+  aks-sample-service2:
+    container_name: aks-sample-service2
+    image: aks-sample-service2
+    ports:
+      - "8082:8082"
+  aks-sample-service3:
+    container_name: aks-sample-service3
+    image: aks-sample-service3
+    ports:
+      - "8083:8083"
