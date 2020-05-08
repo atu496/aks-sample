@@ -69,12 +69,16 @@
         <version>2.2.0</version>
         <configuration>
           <to>
-            <image>aks-sample-app</image>
+            <image>aks-sample-app:1.0.0-SNAPSHOT</image>
           </to>
-          <!-- <container> <environment> <AKS_SAMPLE_APP_URL1>http://192.168.98.26:8081/aks-sample-service</AKS_SAMPLE_APP_URL1>
-            <AKS_SAMPLE_APP_URL2>http://192.168.98.26:8082/aks-sample-service2</AKS_SAMPLE_APP_URL2>
-            <AKS_SAMPLE_APP_URL3>http://192.168.98.26:8083/aks-sample-service3</AKS_SAMPLE_APP_URL3>
-            </environment> </container> -->
+          <container>
+            <creationTime>2020-05-08T10:15:30+09:00</creationTime>
+            <environment>
+              <!-- <AKS_SAMPLE_APP_URL1>http://192.168.98.26:8081/aks-sample-service</AKS_SAMPLE_APP_URL1>
+                <AKS_SAMPLE_APP_URL2>http://192.168.98.26:8082/aks-sample-service2</AKS_SAMPLE_APP_URL2>
+                <AKS_SAMPLE_APP_URL3>http://192.168.98.26:8083/aks-sample-service3</AKS_SAMPLE_APP_URL3> -->
+            </environment>
+          </container>
         </configuration>
       </plugin>
     </plugins>

@@ -71,8 +71,11 @@
         <version>2.2.0</version>
         <configuration>
           <to>
-            <image>aks-sample-service3</image>
+            <image>aks-sample-service3:1.0.0-SNAPSHOT</image>
           </to>
+          <container>
+            <creationTime>2020-05-08T10:15:30+09:00</creationTime>
+          </container>
         </configuration>
       </plugin>
     </plugins>
