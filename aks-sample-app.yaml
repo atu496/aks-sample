@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-sample-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-sample-service
+  template:
+    metadata:
+      labels:
+        app: aks-sample-service
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: aks-sample-service
+        image: morimotodevacr.azurecr.io/aks-sample-service:v1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-sample-service
+spec:
+  ports:
+  - port: 8080
+  selector:
+    app: aks-sample-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-sample-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-sample-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: aks-sample-app
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: aks-sample-app
+        image: morimotodevacr.azurecr.io/aks-sample-app:v1
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
+        env:
+        - name: REDIS
+          value: "aks-sample-app"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-sample-app
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+  selector:
+    app: aks-sample-app
