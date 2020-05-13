@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -23,6 +24,9 @@ public class SampleServiceImpl implements SampleService {
     @Autowired
     RestTemplate resttemplate;
 
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
     @Value("${aks.sample.app.url1:http://localhost:8081/aks-sample-service}")
     //    @Value("${aks.sample.app.url1}")
     private String URL1;
@@ -36,7 +40,7 @@ public class SampleServiceImpl implements SampleService {
     private String URL3;
 
     public ResponseEntity<SampleResponse<String>> getAksSampleService() {
-        return get(URL1);
+        return get("http://aks-sample-service/aks-sample-service");
     }
 
     @Override
@@ -51,7 +55,7 @@ public class SampleServiceImpl implements SampleService {
 
     @Override
     public ResponseEntity<SampleResponse<String>> postAksSampleService() {
-        return post(URL1);
+        return post("http://aks-sample-service/aks-sample-service");
     }
 
     @Override
