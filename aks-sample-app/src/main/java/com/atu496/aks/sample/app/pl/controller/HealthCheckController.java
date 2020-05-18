@@ -14,6 +14,8 @@ public class HealthCheckController {
 
     @GetMapping("/healthcheck")
     public SampleResponse<String> get(ModelAndView mav) {
+        log.info("HealthCheck Success！！！！！");
+
         return new SampleResponse<String>("1", "0", "Success", "HealthCheck OK!!");
     }
 }
