@@ -27,45 +27,45 @@ public class SampleServiceImpl implements SampleService {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @Value("${aks.sample.app.url1:http://localhost:8081/aks-sample-service}")
+    @Value("${aks.sample.app.url1:http://aks-sample-service/aks-sample-service}")
     //    @Value("${aks.sample.app.url1}")
-    private String URL1;
+    private String SERVICE1_URL;
 
-    @Value("${aks.sample.app.url2:http://localhost:8082/aks-sample-service2}")
+    @Value("${aks.sample.app.url2:http://aks-sample-service2/aks-sample-service2}")
     //    @Value("${aks.sample.app.url2}")
-    private String URL2;
+    private String SERVICE2_URL;
 
-    @Value("${aks.sample.app.url3:http://localhost:8083/aks-sample-service3}")
+    @Value("${aks.sample.app.url3:http://aks-sample-service3/aks-sample-service3}")
     //    @Value("${aks.sample.app.url3}")
-    private String URL3;
+    private String SERVICE3_URL;
 
     public ResponseEntity<SampleResponse<String>> getAksSampleService() {
-        return get("http://aks-sample-service/aks-sample-service");
+        return get(SERVICE1_URL);
     }
 
     @Override
     public ResponseEntity<SampleResponse<String>> getAksSampleService2() {
-        return get(URL2);
+        return get(SERVICE2_URL);
     }
 
     @Override
     public ResponseEntity<SampleResponse<String>> getAksSampleService3() {
-        return get(URL3);
+        return get(SERVICE3_URL);
     }
 
     @Override
     public ResponseEntity<SampleResponse<String>> postAksSampleService() {
-        return post("http://aks-sample-service/aks-sample-service");
+        return post(SERVICE1_URL);
     }
 
     @Override
     public ResponseEntity<SampleResponse<String>> postAksSampleService2() {
-        return post(URL2);
+        return post(SERVICE2_URL);
     }
 
     @Override
     public ResponseEntity<SampleResponse<String>> postAksSampleService3() {
-        return post(URL3);
+        return post(SERVICE3_URL);
     }
 
     private ResponseEntity<SampleResponse<String>> get(String baseUrl) {
