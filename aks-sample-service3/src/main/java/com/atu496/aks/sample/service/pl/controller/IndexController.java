@@ -25,13 +25,13 @@ public class IndexController {
     public SampleResponse<String> get(HttpServletRequest req, HttpServletResponse res, SampleRequest sampleRequest) {
         log.info(service.get());
 
-        return new SampleResponse<String>("1", "0", "Success GetRequest", "this service is aks-sample-service");
+        return new SampleResponse<String>("1", "0", "Success GetRequest", "this service is aks-sample-service3");
     }
 
     @PostMapping("/post")
     public SampleResponse<String> post(HttpServletRequest req, HttpServletResponse res, SampleRequest sampleRequest) {
         log.info(service.get());
 
-        return new SampleResponse<String>("1", "0", "success PostRequest", "this service is aks-sample-service");
+        return new SampleResponse<String>("1", "0", "Success PostRequest", "this service is aks-sample-service3");
     }
 }
