@@ -29,14 +29,64 @@
       <div class="jumbotron">
         <h1>aks-sample-app</h1>
         <p>this app is aks-sample-app</p>
+        <div class="text-right">
+          <a
+            th:href="@{/all}"
+            class="btn btn-success btn-lg" role="button">すべてのサービスに取得</a>
+        </div>
       </div>
+      <!-- ConfigMap -->
       <div class="panel panel-success">
-        <div class="panel-heading">aks-sample-service GetRequest</div>
+        <div class="panel-heading">ConfigMap/Secret Info</div>
         <div class="panel-body"></div>
       </div>
-      <div class="panel panel-success">
-        <div class="panel-heading">aks-sample-service PostRequest</div>
-        <div class="panel-body"></div>
+
+      <!-- Service1確認 -->
+      <div class="panel panel-info">
+        <div class="panel-heading">aks-sample-service1</div>
+        <div class="panel-body">
+          <form th:action="@{/service1}" method="post">
+            <p>aks-sample-serviceに接続します</p>
+            <p th:text="${getRes1}"></p>
+            <p th:text="${postRes1}"></p>
+            <div class="text-right">
+              <input class="btn btn-success" type="submit" name="post"
+                value="取得" />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Service2確認 -->
+      <div class="panel panel-warning">
+        <div class="panel-heading">aks-sample-service2</div>
+        <div class="panel-body">
+          <form th:action="@{/service2}" method="post">
+            <p>aks-sample-service2に接続します</p>
+            <p th:text="${getRes2}"></p>
+            <p th:text="${postRes2}"></p>
+            <div class="text-right">
+              <input class="btn btn-success" type="submit" name="post"
+                value="取得" />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Service3確認 -->
+      <div class="panel panel-danger">
+        <div class="panel-heading">aks-sample-service3</div>
+        <div class="panel-body">
+          <form th:action="@{/service3}" method="post">
+            <p>aks-sample-service2に接続します</p>
+            <p th:text="${getRes3}"></p>
+            <p th:text="${postRes3}"></p>
+            <div class="text-right">
+              <input class="btn btn-success" type="submit" name="post"
+                value="取得" />
+            </div>
+          </form>
+        </div>
       </div>
 
     </div>
