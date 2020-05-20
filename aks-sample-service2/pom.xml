@@ -71,7 +71,7 @@
         <version>2.2.0</version>
         <configuration>
           <to>
-            <image>aks-sample-service2:v7</image>
+            <image>aks-sample-service2:v1</image>
           </to>
           <container>
             <creationTime>2020-05-13T10:15:30+09:00</creationTime>
